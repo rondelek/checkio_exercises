@@ -1,4 +1,3 @@
-
 class Warrior:
     def __init__(self):
         self.health = 50
@@ -43,7 +42,7 @@ class Army:
 
 class Battle:
     
-    def fight(self, army_1, army_2):
+    def fight(self, army_1, army_2):    
 
         while len(army_1.soldiers) > 0:
             if fight(army_1.soldiers[-1], army_2.soldiers[-1]):
@@ -55,14 +54,12 @@ class Battle:
         return False
 
         
-
+# return True if unit_1 wins
 def fight(unit_1, unit_2):
     while unit_1.is_alive and unit_2.is_alive:
         unit_2.is_attacked(unit_1)
         unit_1.is_attacked(unit_2)
     return unit_1.is_alive
-
-
 
 
 

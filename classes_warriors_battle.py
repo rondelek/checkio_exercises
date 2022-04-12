@@ -63,19 +63,43 @@ def fight(unit_1, unit_2):
 
 
 
+# checkio test 
+
 chuck = Warrior()
 bruce = Warrior()
 carl = Knight()
 dave = Warrior()
 mark = Warrior()
+bob = Defender()
+mike = Knight()
+rog = Warrior()
+lancelot = Defender()
 
-army_1 = Army()
-army_2 = Army()
-army_1.add_units(Warrior, 1)
-army_2.add_units(Warrior, 2)
+fight(chuck, bruce) == True
+fight(dave, carl) == False
+chuck.is_alive == True
+bruce.is_alive == False
+carl.is_alive == True
+dave.is_alive == False
+fight(carl, mark) == False
+carl.is_alive == False
+fight(bob, mike) == False
+fight(lancelot, rog) == True
+
+my_army = Army()
+my_army.add_units(Defender, 1)
+    
+enemy_army = Army()
+enemy_army.add_units(Warrior, 2)
+
+army_3 = Army()
+army_3.add_units(Warrior, 1)
+army_3.add_units(Defender, 1)
+
+army_4 = Army()
+army_4.add_units(Warrior, 2)
+
 battle = Battle()
-battle.fight(army_1, army_2)
 
-print(battle.fight(army_1, army_2))
-
-  
+battle.fight(my_army, enemy_army) == False
+battle.fight(army_3, army_4) == True
